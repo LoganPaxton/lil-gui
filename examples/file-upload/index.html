@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test GUI with File Upload</title>
+  <link rel="stylesheet" href="path/to/lil-gui.css">
+  <style>
+    /* Optional: Add any custom styles for your GUI */
+    .lil-gui {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test GUI with File Upload</h1>
+  <div id="guiContainer"></div> <!-- This is where your GUI will appear -->
+
+  <script src="/src/GUI.js"></script>
+  <script src="/src/FileController.js"></script> <!-- Make sure the path is correct -->
+  <script>
+    // Initialize GUI
+    const gui = new GUI({ container: document.getElementById('guiContainer') });
+
+    // Create a test object with a file property
+    const params = {
+      myFile: null // This is where the file will be uploaded
+    };
+
+    // Add a file controller for the 'myFile' property
+    gui.add(params, 'myFile'); 
+
+    // Optionally, you can handle the file upload
+    // Here, you can test the value of 'myFile' once a file is selected
+    gui.onFinishChange(function (event) {
+      console.log('File uploaded:', event.value);
+    });
+  </script>
+</body>
+</html>
